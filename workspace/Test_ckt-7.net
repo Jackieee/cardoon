@@ -1,0 +1,33 @@
+#Test ciruit-7
+
+.options maxdelta=1000.
+
+.analysis eop
+#.analysis op
+
+
+x1 2 subcircuit1
+x2 3 subcircuit2
+res:r5 2 3  r=10
+res:r13 2 7 r=10
+res:r14 7 gnd r=10
+
+
+.subckt subcircuit1 2 
+res:r1  1 gnd   r=10
+res:r2 20 gnd r=10
+res:r3 1 2 r=10
+res:r4 2 gnd r=10
+idc:is1 20 1 idc=5A
+.ends
+
+.subckt subcircuit2 3 
+res:r6  3 gnd   r=10
+res:r7  3 4   r=10
+res:r8  4 5   r=10
+res:r9  5 gnd   r=10
+res:r11  6 gnd   r=10
+res:r10 6 4 r=10
+.end
+
+
